@@ -13,8 +13,8 @@ class Brick {
     this.height = 40;
     this.width = 40;
   }
-  place() {
-    c.fillStyle = "blue";
+  draw() {
+    c.fillStyle = "#1c1cd7";
     c.fillRect(this.position.x, this.position.y, this.height, this.width);
   }
 }
@@ -38,8 +38,8 @@ map.forEach((row, i) => {
         walls.push(
           new Brick({
             position: {
-              x: 40 * j,
-              y: 40 * i,
+              x: Brick.width * j,
+              y: Brick.height * i,
             },
           }),
         );
@@ -49,5 +49,5 @@ map.forEach((row, i) => {
 });
 
 walls.forEach((brick) => {
-  brick.place();
+  brick.draw();
 });
