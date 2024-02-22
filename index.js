@@ -19,6 +19,21 @@ class Brick {
   }
 }
 
+class PacMan {
+  constructor({ position, velocity }) {
+    this.position = position;
+    this.velocity = velocity;
+    this.radius = 20;
+  }
+  draw() {
+    c.beginPath();
+    c.arc(this.position.x, this.position.y, this.radius, 0, Math.PI * 2);
+    c.fillStyle = "#ffff00";
+    c.fill();
+    c.closePath();
+  }
+}
+
 const map = [
   ["-", "-", "-", "-", "-", "-"],
   ["-", " ", " ", " ", " ", "-"],
@@ -51,3 +66,16 @@ map.forEach((row, i) => {
 walls.forEach((brick) => {
   brick.draw();
 });
+
+const pacman = new PacMan({
+  position: {
+    x: 40,
+    y: 40,
+  },
+  velocity: {
+    x: 0,
+    y: 0,
+  },
+});
+
+pacman.draw();
